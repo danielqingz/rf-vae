@@ -1,0 +1,1 @@
+python3 main.py --name act_4 --dset_dir /home/jiaqing/dev/BYOL_AI_Fairness/ClassificationData/ACT --dataset ACT --max_iter 5e4 --batch_size 128 --z_dim 4

@@ -80,6 +80,15 @@ def return_data(args):
         data = torch.from_numpy(data['imgs']).unsqueeze(1).float()
         train_kwargs = {'data_tensor':data}
         dset = CustomTensorDataset
+    elif name.lower() == 'nhats':
+        root = os.path.join(dset_dir)
+        train_kwargs = {'root':root, 'transform':transform}
+        dset = CustomImageFolder
+    elif name.lower() == 'act':
+        print("act")
+        root = os.path.join(dset_dir)
+        train_kwargs = {'root':root, 'transform':transform}
+        dset = CustomImageFolder
     else:
         raise NotImplementedError
 

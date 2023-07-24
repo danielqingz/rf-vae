@@ -44,28 +44,28 @@ class RF_VAE1(nn.Module):
         self.z_dim = z_dim
         self.encode = nn.Sequential(
             nn.Conv2d(1, 32, 4, 2, 1),
-            nn.ReLU(True),
+            nn.ReLU(),
             nn.Conv2d(32, 32, 4, 2, 1),
-            nn.ReLU(True),
+            nn.ReLU(),
             nn.Conv2d(32, 64, 4, 2, 1),
-            nn.ReLU(True),
+            nn.ReLU(),
             nn.Conv2d(64, 64, 4, 2, 1),
-            nn.ReLU(True),
+            nn.ReLU(),
             nn.Conv2d(64, 128, 4, 1),
-            nn.ReLU(True),
+            nn.ReLU(),
             nn.Conv2d(128, 2*z_dim, 1)
         )
         self.decode = nn.Sequential(
             nn.Conv2d(z_dim, 128, 1),
-            nn.ReLU(True),
+            nn.ReLU(),
             nn.ConvTranspose2d(128, 64, 4),
-            nn.ReLU(True),
+            nn.ReLU(),
             nn.ConvTranspose2d(64, 64, 4, 2, 1),
-            nn.ReLU(True),
+            nn.ReLU(),
             nn.ConvTranspose2d(64, 32, 4, 2, 1),
-            nn.ReLU(True),
+            nn.ReLU(),
             nn.ConvTranspose2d(32, 32, 4, 2, 1),
-            nn.ReLU(True),
+            nn.ReLU(),
             nn.ConvTranspose2d(32, 1, 4, 2, 1),
         )
         self.weight_init()
