@@ -12,42 +12,10 @@ tqdm
 <br>
 
 ### Datasets
-1. 2D Shapes(dsprites) Dataset
-```
-sh scripts/prepare_data.sh dsprites
-```
-2. 3D Chairs Dataset
-```
-sh scripts/prepare_data.sh 3DChairs
-```
-3. CelebA Dataset([download])
-```
-# first download img_align_celeba.zip and put in data directory like below
-└── data
-    └── img_align_celeba.zip
 
-# then run scrip file
-sh scripts/prepare_data.sh CelebA
 ```
-
-then data directory structure will be like below<br>
-```
-.
-└── data
-    └── dsprites-dataset
-        └── dsprites_ndarray_co1sh3sc6or40x32y32_64x64.npz
-    ├── 3DChairs
-        └── images
-            ├── 1_xxx.png
-            ├── 2_xxx.png
-            ├── ...
-    ├── CelebA
-        └── img_align_celeba
-            ├── 000001.jpg
-            ├── 000002.jpg
-            ├── ...
-            └── 202599.jpg
-    └── ...
+NHATS
+ACT_Slice
 ```
 NOTE: I recommend to preprocess image files(e.g. resizing) BEFORE training and avoid preprocessing on-the-fly.
 <br>
@@ -57,18 +25,9 @@ initialize visdom
 ```
 python -m visdom.server
 ```
-you can reproduce results below as follows
-```
+
 e.g.
-sh scripts/run_celeba.sh $RUN_NAME
-sh scripts/run_dsprites_gamma6p4.sh $RUN_NAME
-sh scripts/run_dsprites_gamma10.sh $RUN_NAME
-sh scripts/run_3dchairs.sh $RUN_NAME
-```
-or you can run your own experiments by setting parameters manually
-```
-e.g.
-python main.py --name run_celeba --dataset celeba --gamma 6.4 --lr_VAE 1e-4 --lr_D 5e-5 --z_dim 10 ...
+python main.py --name run_nhats --dataset nhats --gamma 6.4 --lr_VAE 1e-4 --lr_D 5e-5 --z_dim 10 ...
 ```
 check training process on the visdom server
 ```
@@ -97,7 +56,4 @@ localhost:8097
 
 ### Reference
 1. Relevance Factor VAE: Learning and Identifying Disentangled Factors.([https://arxiv.org/abs/1902.01568])
-
-
-[https://arxiv.org/abs/1902.01568]: https://arxiv.org/abs/1902.01568
-[download]: http://mmlab.ie.cuhk.edu.hk/projects/CelebA.html
+2. Explainable semi-supervised deep learning shows that dementia is associated with small, avocado-shaped clocks with irregularly placed hands ([https://www.nature.com/articles/s41598-023-34518-9])
