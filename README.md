@@ -27,6 +27,7 @@ python -m visdom.server
 ```
 
 e.g.
+```
 python main.py --name run_nhats --dataset nhats --gamma 6.4 --lr_VAE 1e-4 --lr_D 5e-5 --z_dim 10 ...
 ```
 check training process on the visdom server
